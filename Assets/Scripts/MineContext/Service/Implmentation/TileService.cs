@@ -56,8 +56,12 @@ public class TileService : ITileService
 
     public void PlantBombs(int bombs)
     {
-        _tileList[0].HiddenItem = TileItemEnum.Bomb;
+        //TODO Randomize bomb planting
+
+        _tileList[2].HiddenItem = TileItemEnum.Bomb;
         _tileList[3].HiddenItem = TileItemEnum.Bomb;
+        _tileList[12].HiddenItem = TileItemEnum.Bomb;
+        _tileList[13].HiddenItem = TileItemEnum.Bomb;
         _tileList[21].HiddenItem = TileItemEnum.Bomb;
         int size = (int)Math.Sqrt(_tileList.Count + 1);
         for (int y = 0; y < size; y++)

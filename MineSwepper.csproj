@@ -292,6 +292,7 @@
     <Compile Include="Assets\Scripts\Default\DefaultProjectRoot.cs" />
     <Compile Include="Assets\Scripts\DiscoverBehaviour.cs" />
     <Compile Include="Assets\Scripts\Domain\TileGenerator.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Controller\Command\GameOverCommand.cs" />
     <Compile Include="Assets\Scripts\MineContext\Controller\Command\RegisterTileCommand.cs" />
     <Compile Include="Assets\Scripts\MineContext\Controller\Command\StratupCommand.cs" />
     <Compile Include="Assets\Scripts\MineContext\Controller\Command\UncoverTileCommand.cs" />
@@ -506,7 +507,6 @@
     <None Include="Assets\StrangeIoC\examples\Assets\scripts\signalsproject\ReadMe.txt" />
     <None Include="Assets\StrangeIoC\scripts\strange\extensions\ReadMe.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

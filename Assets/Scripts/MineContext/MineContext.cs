@@ -33,8 +33,9 @@ public class MineContext : MVCSContext
         commandBinder.Bind(ContextEvent.START).To<StratupCommand>().Once();
         commandBinder.Bind(EventConstants.RegisterTile).To<RegisterTileCommand>();
         commandBinder.Bind(EventConstants.ClickedOn).To<UncoverTileCommand>();
-        
+        commandBinder.Bind(EventConstants.Explosion).To<GameOverCommand>();
 
 
-    }
+
+}
 }
