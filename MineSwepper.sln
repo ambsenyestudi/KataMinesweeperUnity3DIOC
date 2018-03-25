@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineSwepper", "MineSwepper.csproj", "{81146A00-07AE-6E1A-A0CE-B97890EA5C40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineSwepper.Editor", "MineSwepper.Editor.csproj", "{7F6AA161-9D0A-A492-0487-F9B547EB348F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{81146A00-07AE-6E1A-A0CE-B97890EA5C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81146A00-07AE-6E1A-A0CE-B97890EA5C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81146A00-07AE-6E1A-A0CE-B97890EA5C40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F6AA161-9D0A-A492-0487-F9B547EB348F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F6AA161-9D0A-A492-0487-F9B547EB348F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F6AA161-9D0A-A492-0487-F9B547EB348F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F6AA161-9D0A-A492-0487-F9B547EB348F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

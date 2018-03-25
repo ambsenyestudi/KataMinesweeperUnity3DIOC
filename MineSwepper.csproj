@@ -13,12 +13,14 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -288,6 +290,27 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Default\DefaultContext.cs" />
     <Compile Include="Assets\Scripts\Default\DefaultProjectRoot.cs" />
+    <Compile Include="Assets\Scripts\DiscoverBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Domain\TileGenerator.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Controller\Command\RegisterTileCommand.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Controller\Command\StratupCommand.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Controller\Command\UncoverTileCommand.cs" />
+    <Compile Include="Assets\Scripts\MineContext\EventConstants.cs" />
+    <Compile Include="Assets\Scripts\MineContext\MineContext.cs" />
+    <Compile Include="Assets\Scripts\MineContext\MineRoot.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Model\TileModel.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Service\Contracts\ISurroundingIndexService.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Service\Contracts\ITilePositionComarisonService.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Service\Contracts\ITileService.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Service\Implmentation\SurroundingIndexService.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Service\Implmentation\TilePositionComparisonService.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Service\Implmentation\TileService.cs" />
+    <Compile Include="Assets\Scripts\MineContext\View\Base\ClickedOnDetector.cs" />
+    <Compile Include="Assets\Scripts\MineContext\View\TileCoverMediator.cs" />
+    <Compile Include="Assets\Scripts\MineContext\View\TileCoverView.cs" />
+    <Compile Include="Assets\Scripts\MineContext\View\TileMediator.cs" />
+    <Compile Include="Assets\Scripts\MineContext\View\TileView.cs" />
+    <Compile Include="Assets\Scripts\Monolith\ClickHandler.cs" />
     <Compile Include="Assets\Scripts\Monolith\ExplosionBehaviour.cs" />
     <Compile Include="Assets\Scripts\Monolith\MaterialChangeBehaviour.cs" />
     <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
@@ -483,6 +506,7 @@
     <None Include="Assets\StrangeIoC\examples\Assets\scripts\signalsproject\ReadMe.txt" />
     <None Include="Assets\StrangeIoC\scripts\strange\extensions\ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>
