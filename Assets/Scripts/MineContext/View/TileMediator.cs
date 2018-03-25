@@ -59,6 +59,14 @@ public class TileMediator : EventMediator
                 hiddenItem.transform.localPosition = Vector3.zero;
             }
 
+            //TODO Avoid infinite loop on game over
+            /*
+            else if(tile.HiddenItem == TileItemEnum.Empty)
+            {
+                dispatcher.Dispatch(EventConstants.UncoverEmptyNeighbours, tile);
+            }
+            */
+
         }
     }
 

@@ -11,4 +11,5 @@ public static class EventConstants
     public const string Explosion = "EXPLOSION";
     public const string GameOver = "GAME_OVER";
     public const string UncoverTile = "UNCOVER_TILE";
+    public const string UncoverEmptyNeighbours = "UNCOVER_EMPTY_NEIGHBOURS";
 }

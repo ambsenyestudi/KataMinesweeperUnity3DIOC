@@ -22,7 +22,10 @@ public class TileCoverView : View
     }
     public void DisableGo()
     {
-        _go.SetActive(false);
+        if (_go.activeSelf)
+        {
+            _go.SetActive(false);
+        }
     }
     public void EnableGo()
     {

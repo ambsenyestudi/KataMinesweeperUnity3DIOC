@@ -18,6 +18,14 @@ public class TileService : ITileService
     [Inject]
     public ISurroundingIndexService surroundingIndexService { get; set; }
 
+    public int GridSize
+    {
+        get
+        {
+            return (int)Math.Sqrt(_tileList.Count + 1);
+        }
+    }
+
     private IList<TileModel> _tileList;
 
     public IList<TileModel> TileList
@@ -63,15 +71,15 @@ public class TileService : ITileService
         _tileList[12].HiddenItem = TileItemEnum.Bomb;
         _tileList[13].HiddenItem = TileItemEnum.Bomb;
         _tileList[21].HiddenItem = TileItemEnum.Bomb;
-        int size = (int)Math.Sqrt(_tileList.Count + 1);
-        for (int y = 0; y < size; y++)
+        
+        for (int y = 0; y < GridSize; y++)
         {
-            for (int x = 0; x <size; x++)
+            for (int x = 0; x < GridSize; x++)
             {
-                int index = (y * size) + x;
+                int index = (y * GridSize) + x;
                 if(_tileList[index].HiddenItem!=TileItemEnum.Bomb)
                 {
-                    _tileList[index].BombsSurroundingCount = FigureBombsSurrounding(index, size);
+                    _tileList[index].BombsSurroundingCount = FigureBombsSurrounding(index, GridSize);
                     if (_tileList[index].BombsSurroundingCount == 0)
                     {
                         _tileList[index].HiddenItem = TileItemEnum.Empty;
@@ -109,7 +117,27 @@ public class TileService : ITileService
         }
         return totalBombs;
     }
-    
 
-    
+    public IList<TileModel> FindEmptyNeighbours(TileModel tile)
+    {
+        bool isFound = false;
+        int count = 0;
+        while(!isFound&&count<_tileList.Count)
+        {
+            if(tileComparerService.isTileInSamePosition(_tileList[count], tile))
+            {
+                isFound = true;
+            }
+            else
+            {
+                count++;
+            }
+        }
+        var indexes = surroundingIndexService.FigureSuroundingIndexes(count, GridSize, _tileList.Count).Where(i=>i>-1);
+        var emptyNeigbours = indexes.Select(i => _tileList[i]).Where(t=>t.HiddenItem==TileItemEnum.Empty);
+        //ToDo recursivity
+        
+        return emptyNeigbours.ToList();
+    }
+
 }

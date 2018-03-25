@@ -13,14 +13,12 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -295,6 +293,7 @@
     <Compile Include="Assets\Scripts\MineContext\Controller\Command\GameOverCommand.cs" />
     <Compile Include="Assets\Scripts\MineContext\Controller\Command\RegisterTileCommand.cs" />
     <Compile Include="Assets\Scripts\MineContext\Controller\Command\StratupCommand.cs" />
+    <Compile Include="Assets\Scripts\MineContext\Controller\Command\UncoverEmptyNeigboursCommand.cs" />
     <Compile Include="Assets\Scripts\MineContext\Controller\Command\UncoverTileCommand.cs" />
     <Compile Include="Assets\Scripts\MineContext\EventConstants.cs" />
     <Compile Include="Assets\Scripts\MineContext\MineContext.cs" />
