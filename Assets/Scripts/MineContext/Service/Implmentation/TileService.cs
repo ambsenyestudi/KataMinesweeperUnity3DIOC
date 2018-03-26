@@ -65,17 +65,21 @@ public class TileService : ITileService
     {
         //TODO generate as many bombs as param
         var rand = new System.Random();
-        var games = new int[][]
+        var games = new List<int[]>
         {
             FieldsConstants.firstGame,
             FieldsConstants.secondGame,
             FieldsConstants.thirdGame,
             FieldsConstants.fourthGame,
             FieldsConstants.fifthGame,
-            FieldsConstants.sixthGame
+            FieldsConstants.sixthGame,
+            FieldsConstants.seventhGame,
+            FieldsConstants.eighthGame,
+            FieldsConstants.ninethGame
         };
-        var index = rand.Next(games[0].Length);
+        var index = rand.Next(games.Count);
         var currGame = games[index];
+        
         foreach (var itemIndex in currGame)
         {
             _tileList[itemIndex].HiddenItem = TileItemEnum.Bomb;

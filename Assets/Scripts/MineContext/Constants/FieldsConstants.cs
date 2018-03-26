@@ -10,4 +10,6 @@ public static class FieldsConstants
     public static readonly int[] fifthGame = { 0, 4, 6, 20, 24 };
     public static readonly int[] sixthGame = { 3, 4, 8, 9, 24 };
     public static readonly int[] seventhGame = { 3, 8, 13, 18, 24 };
+    public static readonly int[] eighthGame = { 6, 7, 8, 11, 13 };
+    public static readonly int[] ninethGame = { 6, 7, 8, 11, 13, 16 };
 }
