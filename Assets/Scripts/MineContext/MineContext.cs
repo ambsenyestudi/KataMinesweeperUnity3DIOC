@@ -21,6 +21,7 @@ public class MineContext : MVCSContext
         injectionBinder.Bind<ITileService>().To<TileService>().ToSingleton();
         injectionBinder.Bind<ITilePositionComparisonService>().To<TilePositionComparisonService>().ToSingleton();
         injectionBinder.Bind<ISurroundingIndexService>().To<SurroundingIndexService>().ToSingleton();
+        injectionBinder.Bind<IGameEvaluationService>().To<GameEvaluationService>().ToSingleton();
 
         //View/Mediator binding
         mediationBinder.Bind<TileView>().To<TileMediator>();
@@ -35,6 +36,8 @@ public class MineContext : MVCSContext
         commandBinder.Bind(EventConstants.ClickedOn).To<UncoverTileCommand>();
         commandBinder.Bind(EventConstants.Explosion).To<GameOverCommand>();
         commandBinder.Bind(EventConstants.UncoverEmptyNeighbours).To<UncoverEmptyNeigboursCommand>();
+        commandBinder.Bind(EventConstants.LastTileUncovered).To<GameWonCommand>();
+        
 
 
     }

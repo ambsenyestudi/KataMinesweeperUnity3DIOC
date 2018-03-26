@@ -15,6 +15,7 @@ public class TileModel
     public float Z { get; set; }
     public int BombsSurroundingCount { get; set; }
     public TileItemEnum HiddenItem { get; set; }
+    public bool IsUncovered { get; set; }
 
     public override string ToString()
     {

@@ -80,15 +80,6 @@ public class TileService : ITileService
         {
             _tileList[itemIndex].HiddenItem = TileItemEnum.Bomb;
         }
-        /*
-        {
-            _tileList[2].HiddenItem = TileItemEnum.Bomb;
-            _tileList[3].HiddenItem = TileItemEnum.Bomb;
-            _tileList[12].HiddenItem = TileItemEnum.Bomb;
-            _tileList[13].HiddenItem = TileItemEnum.Bomb;
-            _tileList[21].HiddenItem = TileItemEnum.Bomb;
-        }
-        */
     }
     public void PlantBombs(int bombs)
     {
@@ -163,4 +154,14 @@ public class TileService : ITileService
         return emptyNeigbours.ToList();
     }
 
+    public void TrackTile(TileModel tile)
+    {
+        for (int i = 0; i < _tileList.Count; i++)
+        {
+            if(tileComparerService.isTileInSamePosition(tile, _tileList[i]))
+            {
+                _tileList[i].IsUncovered = true;
+            }
+        }
+    }
 }

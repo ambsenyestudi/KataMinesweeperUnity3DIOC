@@ -9,4 +9,5 @@ public interface ITileService
     void AddTileToList(TileModel tile);
     IList<TileModel> FindEmptyNeighbours(TileModel tile);
     void PlantBombs(int bombs);
+    void TrackTile(TileModel tile);
 }

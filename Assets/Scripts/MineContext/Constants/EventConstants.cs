@@ -12,4 +12,6 @@ public static class EventConstants
     public const string GameOver = "GAME_OVER";
     public const string UncoverTile = "UNCOVER_TILE";
     public const string UncoverEmptyNeighbours = "UNCOVER_EMPTY_NEIGHBOURS";
+    public const string GameWon = "GAME_WON";
+    public const string LastTileUncovered = "LAST_TILE_UNCOVERED";
 }
