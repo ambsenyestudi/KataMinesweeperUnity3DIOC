@@ -15,7 +15,7 @@ public class TileMediator : EventMediator
     public ITilePositionComparisonService _comparisonService { get; set; }
 
     private GameObject hiddenItem ;
-
+    private bool isDisabled;
     public override void OnRegister()
     {
         hiddenItem = null;
@@ -23,10 +23,26 @@ public class TileMediator : EventMediator
         view.dispatcher.AddListener(EventConstants.ClickedOn, onViewClickedOn);
         view.dispatcher.AddListener(EventConstants.TileInitialized, onTileInitialized);
         dispatcher.AddListener(EventConstants.UncoverTile, UnCoverClickedOnTile);
+        dispatcher.AddListener(EventConstants.GameWon, ShowFlag);
         dispatcher.AddListener(EventConstants.GameOver, GameOverUncover);
         //Listen to the global event bus for events
         dispatcher.AddListener(EventConstants.AppStarted, AppStarted);
         view.Init();
+    }
+
+    private void Reset()
+    {
+        isDisabled = false;
+    }
+    private void ShowFlag(IEvent payload)
+    {
+        if (hiddenItem == null)
+        {
+            hiddenItem = (GameObject)Instantiate(Resources.Load(PrefabConstants.Flag));
+            hiddenItem.transform.parent = this.transform;
+            hiddenItem.transform.localPosition = Vector3.zero;
+        }
+        isDisabled = true;
     }
 
     private void GameOverUncover(IEvent payload)
@@ -62,7 +78,7 @@ public class TileMediator : EventMediator
         {
             if (tile.HiddenItem == TileItemEnum.Bomb)
             {
-                hiddenItem = (GameObject)Instantiate(Resources.Load("Prefab/ase-minesweeper_mine"));
+                hiddenItem = (GameObject)Instantiate(Resources.Load(PrefabConstants.Mine));
                 dispatcher.Dispatch(EventConstants.Explosion);
             }
             else
@@ -93,22 +109,22 @@ public class TileMediator : EventMediator
         switch (bombsSurroundingCount)
         {
             case 1:
-                hiddenItem = (GameObject)Instantiate(Resources.Load("Prefab/ase-minesweeper_number_1"));
+                hiddenItem = (GameObject)Instantiate(Resources.Load(PrefabConstants.Number1));
                 break;
             case 2:
-                hiddenItem = (GameObject)Instantiate(Resources.Load("Prefab/ase-minesweeper_number_2"));
+                hiddenItem = (GameObject)Instantiate(Resources.Load(PrefabConstants.Number2));
                 break;
             case 3:
-                hiddenItem = (GameObject)Instantiate(Resources.Load("Prefab/ase-minesweeper_number_3"));
+                hiddenItem = (GameObject)Instantiate(Resources.Load(PrefabConstants.Number3));
                 break;
             case 4:
-                hiddenItem = (GameObject)Instantiate(Resources.Load("Prefab/ase-minesweeper_number_4"));
+                hiddenItem = (GameObject)Instantiate(Resources.Load(PrefabConstants.Number4));
                 break;
             case 5:
-                hiddenItem = (GameObject)Instantiate(Resources.Load("Prefab/ase-minesweeper_number_5"));
+                hiddenItem = (GameObject)Instantiate(Resources.Load(PrefabConstants.Number5));
                 break;
             case 6:
-                hiddenItem = (GameObject)Instantiate(Resources.Load("Prefab/ase-minesweeper_number_6"));
+                hiddenItem = (GameObject)Instantiate(Resources.Load(PrefabConstants.Number6));
                 break;
             default:
                 break;
@@ -118,11 +134,14 @@ public class TileMediator : EventMediator
     private void AppStarted(IEvent payload)
     {
         //TODO identify this tile
-        //throw new NotImplementedException();
+        Reset();
     }
     private void onViewClickedOn()
     {
-        dispatcher.Dispatch(EventConstants.ClickedOn, view.TileModel);
+        if (!isDisabled)
+        {
+            dispatcher.Dispatch(EventConstants.ClickedOn, view.TileModel);
+        }
     }
 
     public override void OnRemove()
