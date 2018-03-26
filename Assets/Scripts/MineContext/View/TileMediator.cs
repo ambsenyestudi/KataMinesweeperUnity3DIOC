@@ -23,9 +23,22 @@ public class TileMediator : EventMediator
         view.dispatcher.AddListener(EventConstants.ClickedOn, onViewClickedOn);
         view.dispatcher.AddListener(EventConstants.TileInitialized, onTileInitialized);
         dispatcher.AddListener(EventConstants.UncoverTile, UnCoverClickedOnTile);
+        dispatcher.AddListener(EventConstants.GameOver, GameOverUncover);
         //Listen to the global event bus for events
         dispatcher.AddListener(EventConstants.AppStarted, AppStarted);
         view.Init();
+    }
+
+    private void GameOverUncover(IEvent payload)
+    {
+        if (hiddenItem == null)
+        {
+            var tile = payload.data as TileModel;
+            if (_comparisonService.isTileInSamePosition(view.TileModel, tile))
+            {
+                DoUncoverTile(tile);
+            }
+        }
     }
 
     private void onTileInitialized(IEvent payload)
@@ -34,39 +47,44 @@ public class TileMediator : EventMediator
     }
     private void UnCoverClickedOnTile(IEvent payload)
     {
-        var tile = payload.data as TileModel;
-        if (_comparisonService.isTileInSamePosition(view.TileModel, tile))
+        if (hiddenItem == null)
         {
-            DoUncoverTile(tile);
+            var tile = payload.data as TileModel;
+            if (_comparisonService.isTileInSamePosition(view.TileModel, tile))
+            {
+                DoUncoverTileAndEmptyNeibours(tile);
+            }
         }
     }
     private void DoUncoverTile(TileModel tile)
     {
-        if (hiddenItem == null)
+        if (tile.HiddenItem == TileItemEnum.Bomb || tile.HiddenItem == TileItemEnum.Nearbomb)
         {
-            if (tile.HiddenItem == TileItemEnum.Bomb || tile.HiddenItem == TileItemEnum.Nearbomb)
+            if (tile.HiddenItem == TileItemEnum.Bomb)
             {
-                if (tile.HiddenItem == TileItemEnum.Bomb)
-                {
-                    hiddenItem = (GameObject)Instantiate(Resources.Load("Prefab/ase-minesweeper_mine"));
-                    dispatcher.Dispatch(EventConstants.Explosion);
-                }
-                else
-                {
-                    InstantiateBombCount(tile.BombsSurroundingCount);
-                }
-                hiddenItem.transform.parent = gameObject.transform;
-                hiddenItem.transform.localPosition = Vector3.zero;
+                hiddenItem = (GameObject)Instantiate(Resources.Load("Prefab/ase-minesweeper_mine"));
+                dispatcher.Dispatch(EventConstants.Explosion);
             }
-
-            //TODO Avoid infinite loop on game over
-            /*
-            else if(tile.HiddenItem == TileItemEnum.Empty)
+            else
             {
-                dispatcher.Dispatch(EventConstants.UncoverEmptyNeighbours, tile);
+                InstantiateBombCount(tile.BombsSurroundingCount);
             }
-            */
-
+            hiddenItem.transform.parent = gameObject.transform;
+            hiddenItem.transform.localPosition = Vector3.zero;
+        }
+    }
+    private void DoUncoverTileAndEmptyNeibours(TileModel tile)
+    {
+        if (tile.HiddenItem == TileItemEnum.Empty)
+        {
+            hiddenItem = new GameObject();
+            hiddenItem.transform.parent = this.transform;
+            hiddenItem.transform.localPosition = Vector3.zero;
+            dispatcher.Dispatch(EventConstants.UncoverEmptyNeighbours, tile);
+        }
+        else
+        {
+            DoUncoverTile(tile);
         }
     }
 

@@ -61,17 +61,40 @@ public class TileService : ITileService
         _tileList = orderedItems.ToList();
 
     }
-
+    private void generateRandomBombs(int bombs)
+    {
+        //TODO generate as many bombs as param
+        var rand = new System.Random();
+        var games = new int[][]
+        {
+            FieldsConstants.firstGame,
+            FieldsConstants.secondGame,
+            FieldsConstants.thirdGame,
+            FieldsConstants.fourthGame,
+            FieldsConstants.fifthGame,
+            FieldsConstants.sixthGame
+        };
+        var index = rand.Next(games[0].Length);
+        var currGame = games[index];
+        foreach (var itemIndex in currGame)
+        {
+            _tileList[itemIndex].HiddenItem = TileItemEnum.Bomb;
+        }
+        /*
+        {
+            _tileList[2].HiddenItem = TileItemEnum.Bomb;
+            _tileList[3].HiddenItem = TileItemEnum.Bomb;
+            _tileList[12].HiddenItem = TileItemEnum.Bomb;
+            _tileList[13].HiddenItem = TileItemEnum.Bomb;
+            _tileList[21].HiddenItem = TileItemEnum.Bomb;
+        }
+        */
+    }
     public void PlantBombs(int bombs)
     {
-        //TODO Randomize bomb planting
+        generateRandomBombs(bombs);
 
-        _tileList[2].HiddenItem = TileItemEnum.Bomb;
-        _tileList[3].HiddenItem = TileItemEnum.Bomb;
-        _tileList[12].HiddenItem = TileItemEnum.Bomb;
-        _tileList[13].HiddenItem = TileItemEnum.Bomb;
-        _tileList[21].HiddenItem = TileItemEnum.Bomb;
-        
+
         for (int y = 0; y < GridSize; y++)
         {
             for (int x = 0; x < GridSize; x++)

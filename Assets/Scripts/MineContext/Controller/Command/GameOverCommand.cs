@@ -10,7 +10,7 @@ public class GameOverCommand : EventCommand
     {
         foreach (var tile in tileService.TileList)
         {
-            dispatcher.Dispatch(EventConstants.UncoverTile,tile);
+            dispatcher.Dispatch(EventConstants.GameOver,tile);
         }
         
     }
