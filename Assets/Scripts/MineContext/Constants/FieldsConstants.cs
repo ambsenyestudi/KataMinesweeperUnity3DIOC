@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public static class FieldsConstants
+﻿public static class FieldsConstants
 {
     public static readonly int[] firstGame = { 2, 3, 12, 13, 21 };
     public static readonly int[] secondGame = { 0, 6, 12, 18, 24 };

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TileView : ClickedOnDetector
+﻿public class TileView : ClickedOnDetector
 {
     public TileModel TileModel { get; private set; }
 

@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using strange.extensions.command.impl;
+﻿using strange.extensions.command.impl;
 using strange.extensions.context.api;
 using System.Linq;
+using UnityEngine;
 
 public class RegisterTileCommand : EventCommand
 {

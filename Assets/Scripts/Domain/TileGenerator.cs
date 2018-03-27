@@ -1,8 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using System;
-
-public class TileGenerator
+﻿public class TileGenerator
 {
 
     // Use this for initialization

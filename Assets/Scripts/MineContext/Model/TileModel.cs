@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public enum TileItemEnum
+﻿public enum TileItemEnum
 {
     UniInitalized,
     Bomb,

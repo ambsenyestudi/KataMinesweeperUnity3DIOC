@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using strange.extensions.command.impl;
+﻿using strange.extensions.command.impl;
 using System.Collections.Generic;
 
 public class UncoverEmptyNeigboursCommand : EventCommand
