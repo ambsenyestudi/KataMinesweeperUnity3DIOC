@@ -286,9 +286,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Default\DefaultContext.cs" />
-    <Compile Include="Assets\Scripts\Default\DefaultProjectRoot.cs" />
-    <Compile Include="Assets\Scripts\DiscoverBehaviour.cs" />
     <Compile Include="Assets\Scripts\Domain\TileGenerator.cs" />
     <Compile Include="Assets\Scripts\MineContext\Constants\EventConstants.cs" />
     <Compile Include="Assets\Scripts\MineContext\Constants\FieldsConstants.cs" />
@@ -316,8 +313,8 @@
     <Compile Include="Assets\Scripts\MineContext\View\TileMediator.cs" />
     <Compile Include="Assets\Scripts\MineContext\View\TileView.cs" />
     <Compile Include="Assets\Scripts\Monolith\ClickHandler.cs" />
+    <Compile Include="Assets\Scripts\Monolith\DiscoverBehaviour.cs" />
     <Compile Include="Assets\Scripts\Monolith\ExplosionBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Monolith\MaterialChangeBehaviour.cs" />
     <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
     <Compile Include="Assets\StrangeIoC\examples\Assets\scripts\multiplecontexts\game\controller\GameEvent.cs" />
     <Compile Include="Assets\StrangeIoC\examples\Assets\scripts\multiplecontexts\game\controller\GameOverCommand.cs" />

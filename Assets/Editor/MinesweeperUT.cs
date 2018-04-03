@@ -43,6 +43,16 @@ public class MinesweeperUT {
         Assert.AreEqual(field[0], "00");
         Assert.AreEqual(field[1], "00");
     }
+    [Test]
+    public void GivenThreeTwoDotFieldShouldGetZero()
+    {
+        // Use the Assert class to test conditions.
+        var generator = new TileGenerator();
+        var field = generator.GenerateField(2, 2, new string[] { "..", "..", ".." });
+        Assert.AreEqual(field[0], "00");
+        Assert.AreEqual(field[1], "00");
+        Assert.AreEqual(field[2], "00");
+    }
     // A UnityTest behaves like a coroutine in PlayMode
     // and allows you to yield null to skip a frame in EditMode
     [UnityTest]
